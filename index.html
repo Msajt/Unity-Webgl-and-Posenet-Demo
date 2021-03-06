@@ -1,0 +1,78 @@
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | Tutorial - Joguinho bola</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+
+    <!-- Unity -->
+    <script defer src="TemplateData/UnityProgress.js"></script>
+    <script defer src="Build/UnityLoader.js"></script>
+    <!-- p5 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"></script>
+    <!-- ml5 -->
+    <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+    <!-- p5.play -->
+    <script src="https://cdn.jsdelivr.net/gh/molleindustria/p5.play@master/lib/p5.play.js"></script>
+    <!-- Script JS -->
+    <script defer src='sketch.js'></script>
+
+<!--
+  
+    <video id="video" width="160" height="120" autoplay></video>
+
+    <script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/Build WebGL.json", {onProgress: UnityProgress});
+      setTimeout(() => {
+         // Grab elements, create settings, etc.
+      const video = document.getElementById('video');
+
+// Create a webcam capture
+navigator.mediaDevices.getUserMedia({ video: true })
+  .then((stream) => {
+    video.srcObject = stream;
+    video.play();
+  })
+
+// Initialize the Image Classifier method with MobileNet passing the video as the
+// second argument and the getClassification function as the third
+ml5.imageClassifier('https://storage.googleapis.com/tm-model/dSlqkdrVU/model.json', video)
+  .then(classifier => loop(classifier))
+
+const loop = (classifier) => {
+  classifier.classify()
+    .then(results => {
+      gameInstance.SendMessage('Bola', 'Move', results[0].label);
+      console.log(results[0].label);
+      //result.innerText = results[0].label;
+      //probability.innerText = results[0].confidence.toFixed(4);
+      loop(classifier) // Call again to create a loop
+  })
+}
+      }, 15000)
+    </script>
+
+-->
+
+  </head>
+  <body>
+    <!--
+    <div>
+      <button onclick="gameInstance.SendMessage('Bola','Move', 'up')">Move Up</button>
+      <button onclick="gameInstance.SendMessage('Bola','Move', 'down')">Move Down</button>
+    </div>
+    -->
+
+    <div class="webgl-content">
+      <div id="gameContainer" style="width: 960px; height: 600px"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+        <div class="title">Tutorial - Joguinho bola</div>
+      </div>
+    </div>
+  </body>
+</html>
