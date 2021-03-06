@@ -1,6 +1,6 @@
-# Unity WebGL demo using webcam as controller
+# Unity and Posenet Demo
 
-A short demo testing the use of Teachable Machine and ml5.js to control a WebGL Unity Build using webcam as control.
+A short demo testing the use of Unity Webgl and Posenet to create games using movements taken on webcam, simulating Kinect
 
 # Results
-![](unity-webgl-demo.gif)
+![](unity-posenet.gif)
